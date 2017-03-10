@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "vue": "^2.2.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.26.4",
+    "fixpack": "^2.3.1",
+    "karma": "^1.5.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "rimraf": "^2.6.1",
+    "uglify-save-license": "^0.4.1",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.2",
+    "webpack": "^2.2.1"
+  },
+  "private": true,
+  "scripts": {
+    "chrome:canary": "karma start --browsers ChromeCanaryExtension --retry-limit 0",
+    "chrome:stable": "karma start --browsers ChromeStableExtension --retry-limit 0",
+    "clean": "rimraf './userdata_chrome*/*' './userdata_chrome*/.!(gitkeep)'",
+    "compile": "npm run webpack -- --devtool inline-source-map",
+    "develop": "npm run compile -- --watch",
+    "export": "git archive HEAD | tar x - -C",
+    "fixpack": "fixpack",
+    "karma": "karma",
+    "minify": "NODE_ENV=production npm run webpack -- --optimize-minimize",
+    "webpack": "webpack --colors --display-error-details --progress"
+  }
+}
